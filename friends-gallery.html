@@ -1,0 +1,110 @@
+<!-- =========================
+FILE: friends-gallery.html
+========================= -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+   <title>Happy Birthday Sana</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="centered smooth-gradient">
+    <div class="card birthday-card gallery-card">
+      <h2>❤️True friends are never apart, maybe in distance but never in heart❤️</h2>
+      <p class="muted">With them, every moment feels a little more special.❤️</p>
+
+      <div id="galleryGrid" class="gallery-grid"></div>
+
+      <div class="row" style="justify-content:center;">
+        <button id="back" class="btn btn-ghost">Back</button>
+        <button id="next" class="btn">Next</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function checkLogin(){
+      const user = sessionStorage.getItem('photoUser');
+      if(!user) location.href = 'index.html';
+    })();
+
+    const PHOTOS = [
+      { id: 1, front: "https://drive.google.com/uc?export=view&id=FRIENDS_FRONT_1", back: "https://drive.google.com/uc?export=view&id=FRIENDS_BACK_1" },
+      { id: 2, front: "https://drive.google.com/uc?export=view&id=FRIENDS_FRONT_2", back: "https://drive.google.com/uc?export=view&id=FRIENDS_BACK_2" }
+    ];
+
+    const grid = document.getElementById("galleryGrid");
+
+    grid.innerHTML = PHOTOS.map(p => `
+      <div class="flip-card" data-id="${p.id}">
+        <div class="flip-inner" id="card-${p.id}">
+          <div class="flip-front">
+            <div class="img-skeleton"></div>
+            <img data-src="${p.front}" alt="Friends photo ${p.id} (front)" class="lazy-img" loading="lazy">
+            <div class="heart-pop" aria-hidden="true">❤️</div>
+          </div>
+          <div class="flip-back">
+            <div class="img-skeleton"></div>
+            <img data-src="${p.back}" alt="Friends photo ${p.id} (back)" class="lazy-img" loading="lazy">
+            <div class="heart-pop" aria-hidden="true">❤️</div>
+          </div>
+        </div>
+      </div>
+    `).join("");
+
+    grid.addEventListener("click", (e) => {
+      const card = e.target.closest(".flip-card");
+      if(!card) return;
+      const id = card.dataset.id;
+      const inner = document.getElementById(`card-${id}`);
+      inner.classList.toggle("flipped");
+      inner.classList.remove("heart-animate");
+      void inner.offsetWidth;
+      inner.classList.add("heart-animate");
+    });
+
+    const lazyImages = [...document.querySelectorAll("img.lazy-img")];
+
+    function loadImg(img){
+      const src = img.dataset.src;
+      if(!src) return;
+      img.src = src;
+      img.removeAttribute("data-src");
+
+      img.addEventListener("load", () => {
+        img.classList.add("is-loaded");
+        const sk = img.previousElementSibling;
+        if(sk && sk.classList.contains("img-skeleton")) sk.remove();
+      }, { once: true });
+
+      img.addEventListener("error", () => {
+        img.classList.add("is-loaded");
+        const sk = img.previousElementSibling;
+        if(sk && sk.classList.contains("img-skeleton")) sk.remove();
+        img.alt = "Image failed to load";
+        img.src = "images/fallback.jpg";
+      }, { once: true });
+    }
+
+    if ("IntersectionObserver" in window) {
+      const io = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting){
+            loadImg(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { root: null, rootMargin: "300px 0px", threshold: 0.01 });
+
+      lazyImages.forEach(img => io.observe(img));
+    } else {
+      lazyImages.forEach(loadImg);
+    }
+
+    document.getElementById('back').addEventListener('click', ()=> location.href = 'gallery.html');
+    document.getElementById('next').addEventListener('click', ()=> location.href = 'mine-gallery.html');
+  </script>
+</body>
+</html>

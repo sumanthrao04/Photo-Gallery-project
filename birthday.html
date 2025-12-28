@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday Sana</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="centered smooth-gradient">
+  <div class="card birthday-card">
+    <h1>Happy Birthday Sana❤️ </h1>
+
+<!-- ✅ Large responsive video -->
+<div class="video-wrap large-video">
+  <iframe
+    class="birthday-video"
+    src="https://www.youtube.com/embed/i6eEpB65WBc"
+    title="Birthday Video"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+
+
+   <p class="birthday-quote">
+ ❤️ Celebrating you and all the love you bring into our lives❤️
+</p>
+    <div class="row">
+      <button id="openGallery" class="btn btn-ghost">Click on Next to continue the journey ❤️</button>
+
+     
+    </div>
+  </div>
+</main>
+
+
+<script>
+  // 🔐 Login check
+  (function checkLogin() {
+    const user = sessionStorage.getItem('photoUser');
+    if (!user) {
+      // Not logged in → redirect to login page
+      location.href = 'index.html';
+    }
+  })();
+
+  // Open gallery
+document.getElementById('openGallery').addEventListener('click', () => {
+    location.href = 'gallery.html';
+  });
+
+  // Logout
+  document.getElementById('logout').addEventListener('click', () => {
+    sessionStorage.removeItem('photoUser');
+    location.href = 'index.html';
+  });
+</script>
+
+</body>
+</html>

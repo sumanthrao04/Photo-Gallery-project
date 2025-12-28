@@ -1,0 +1,92 @@
+<!-- =========================
+FILE: gallery.html
+Copy-paste as it is
+========================= -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Happy Birthday Sana</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="centered smooth-gradient">
+    <div class="card birthday-card gallery-card">
+      <h2>❤️Family isn’t an important thing — it’s everything❤️</h2>
+      <p class="muted">Their love is the quiet strength behind every smile and every success.❤️</p>
+
+      <div id="galleryGrid" class="gallery-grid"></div>
+
+      <div class="row" style="justify-content:center;">
+        <button id="back" class="btn">Back</button>
+       <button id="next" class="btn btn-ghost">Next</button>
+
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // 🔐 Protect page
+    (function checkLogin(){
+      const user = sessionStorage.getItem('photoUser');
+      if(!user) location.href = 'index.html';
+    })();
+
+    // ✅ Add your photos here (front + back)
+    // Google Drive direct image format:
+    // https://drive.google.com/uc?export=view&id=FILE_ID
+    const PHOTOS = [
+      { id: 1, front: "https://drive.google.com/uc?export=view&id=FRONT_FILE_ID_1", back: "https://drive.google.com/uc?export=view&id=BACK_FILE_ID_1" },
+      { id: 2, front: "https://drive.google.com/uc?export=view&id=FRONT_FILE_ID_2", back: "https://drive.google.com/uc?export=view&id=BACK_FILE_ID_2" },
+      { id: 3, front: "https://drive.google.com/uc?export=view&id=FRONT_FILE_ID_3", back: "https://drive.google.com/uc?export=view&id=BACK_FILE_ID_3" },
+      { id: 4, front: "https://drive.google.com/uc?export=view&id=FRONT_FILE_ID_4", back: "https://drive.google.com/uc?export=view&id=BACK_FILE_ID_4" },
+      { id: 5, front: "https://drive.google.com/uc?export=view&id=FRONT_FILE_ID_5", back: "https://drive.google.com/uc?export=view&id=BACK_FILE_ID_5" }
+      // ... add up to 50
+    ];
+
+    const grid = document.getElementById("galleryGrid");
+
+    // Render flip image cards (front image + back image + heart overlay)
+    grid.innerHTML = PHOTOS.map(p => `
+      <div class="flip-card" data-id="${p.id}">
+        <div class="flip-inner" id="card-${p.id}">
+          <!-- FRONT -->
+          <div class="flip-front">
+            <img src="${p.front}" alt="Family photo ${p.id} (front)" loading="lazy">
+            <div class="heart-pop" aria-hidden="true">❤️</div>
+          </div>
+
+          <!-- BACK -->
+          <div class="flip-back">
+            <img src="${p.back}" alt="Family photo ${p.id} (back)" loading="lazy">
+            <div class="heart-pop" aria-hidden="true">❤️</div>
+          </div>
+        </div>
+      </div>
+    `).join("");
+
+    // Flip on card click + heart animation
+    grid.addEventListener("click", (e) => {
+      const card = e.target.closest(".flip-card");
+      if(!card) return;
+
+      const id = card.dataset.id;
+      const inner = document.getElementById(`card-${id}`);
+
+      // flip
+      inner.classList.toggle("flipped");
+
+      // trigger heart animation (restart by removing/adding class)
+      inner.classList.remove("heart-animate");
+      // force reflow so animation restarts
+      void inner.offsetWidth;
+      inner.classList.add("heart-animate");
+    });
+
+    // Back & Logout
+    document.getElementById('back').addEventListener('click', ()=> location.href = 'birthday.html');
+    document.getElementById('next').addEventListener('click', ()=> location.href = 'friends-gallery.html');
+  </script>
+</body>
+</html>

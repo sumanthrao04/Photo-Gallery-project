@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+   <title>Happy Birthday Sana</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="centered smooth-gradient">
+    <div class="card birthday-card end-card">
+
+      <!-- ✅ End Image -->
+      <img
+        src="images/end-image.jpg"
+        alt="End Image"
+        class="end-image"
+      />
+
+      <p class="muted">Hope you loved the memories ❤️</p>
+
+      <div class="row" style="justify-content:center;">
+        <button id="back" class="btn btn-ghost">Back</button>
+        <button id="logout" class="btn">Logout</button>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // 🔐 Protect page
+    (function checkLogin(){
+      const user = sessionStorage.getItem('photoUser');
+      if(!user) location.href = 'index.html';
+    })();
+
+    document.getElementById('back').addEventListener('click', ()=> {
+      location.href = 'mine-gallery.html';
+    });
+
+    document.getElementById('logout').addEventListener('click', ()=> {
+      sessionStorage.removeItem('photoUser');
+      location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>
