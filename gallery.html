@@ -111,18 +111,155 @@
     })();
 
     // ✅ Add your images here (iframe embeds)
-    const PHOTOS = [
-      { id: 1, iframe: "https://drive.google.com/file/d/1Xb2uFdSFwUOhs8VWu-Q6VR-cecCIbCTA/preview", text: "Family celebration with joy!" },
-      { id: 2, iframe: "https://drive.google.com/file/d/12URNgIYCCwS5d1KrTRYwML1XAPQLEJcI/preview", text: "A moment to remember!" },
-      { id: 3, iframe: "https://drive.google.com/file/d/1Vd8Nql7ZFuH4zGeOdS_vOHki0vbj_Pur/preview", text: "Happiness in every frame!" },
-      { id: 4, iframe: "https://drive.google.com/file/d/18lFBZM3p40i40HHm6XCPJp00ybgmhk06/preview", text: "Captured memories." },
-      { id: 5, iframe: "https://drive.google.com/file/d/1Q03c7sSsc6xpNUHe08liGcxAFbVCvc8u/preview", text: "A special day indeed." },
-      { id: 6, iframe: "https://drive.google.com/file/d/1ZPoenl0Qp0ozzMLSRjD5BHZLTJT_Qbjc/preview", text: "Cherished moments forever." },
-      { id: 7, iframe: "https://drive.google.com/file/d/17_YZUUa0G34Nr7jxE0rSTKJxmpj0DJll/preview", text: "A family full of love!" },
-      { id: 8, iframe: "https://drive.google.com/file/d/1kktnY4V4xBW8qTW5jWab2YXtcQEyRc86/preview", text: "Every photo tells a story." },
-      { id: 9, iframe: "https://drive.google.com/file/d/1RBDRBX6x9IeW9Sg-r0AK7DTRqLafJjsR/preview", text: "The best moments are together." },
-      { id: 10, iframe: "https://drive.google.com/file/d/1OKLCxzPnnbjEwEIKV0jQfBoBN6TiB8pK/preview", text: "Happy moments captured!" },
-      // Add more images (up to 50) in the same format
+   const PHOTOS = [
+      { id: 1, iframe: "https://drive.google.com/file/d/12URNgIYCCwS5d1KrTRYwML1XAPQLEJcI/preview", text: "Family celebration with joy!" },
+      { id: 2, iframe: "https://drive.google.com/file/d/1Vd8Nql7ZFuH4zGeOdS_vOHki0vbj_Pur/preview", text: "A moment to remember!" },
+      { id: 3, iframe: "https://drive.google.com/file/d/18lFBZM3p40i40HHm6XCPJp00ybgmhk06/preview", text: "Happiness in every frame!" },
+      { id: 4, iframe: "https://drive.google.com/file/d/1Q03c7sSsc6xpNUHe08liGcxAFbVCvc8u/preview", text: "Captured memories." },
+      { id: 5, iframe: "https://drive.google.com/file/d/1ZPoenl0Qp0ozzMLSRjD5BHZLTJT_Qbjc/preview", text: "A special day indeed." },
+      { id: 6, iframe: "https://drive.google.com/file/d/17_YZUUa0G34Nr7jxE0rSTKJxmpj0DJll/preview", text: "Cherished moments forever." },
+      { id: 7, iframe: "https://drive.google.com/file/d/1kktnY4V4xBW8qTW5jWab2YXtcQEyRc86/preview", text: "A family full of love!" },
+      { id: 8, iframe: "https://drive.google.com/file/d/1RBDRBX6x9IeW9Sg-r0AK7DTRqLafJjsR/preview", text: "Every photo tells a story." },
+      { id: 9, iframe: "https://drive.google.com/file/d/1OKLCxzPnnbjEwEIKV0jQfBoBN6TiB8pK/preview", text: "The best moments are together." },
+      { id: 10, iframe: "https://drive.google.com/file/d/1aaAk16zGOh4p3e3NTZdzw5jJL-1TkD09/preview", text: "Happy moments captured!" },
+	  
+	    { id: 11, iframe: "https://drive.google.com/file/d/1Xb2uFdSFwUOhs8VWu-Q6VR-cecCIbCTA/preview", text: "Family celebration with joy!" },
+      { id: 12, iframe: "https://drive.google.com/file/d/1roWlTkBes4Wng4pahj7DwmCakp0VTJ1T/preview", text: "A moment to remember!" },
+      { id: 13, iframe: "https://drive.google.com/file/d/1yZ11ywNV_HUb1dy_cGqJcP-w9r6spG95/preview", text: "Happiness in every frame!" },
+      { id: 14, iframe: "https://drive.google.com/file/d/16St4gf8LyHDEX_SGk7dZdWmH9I17VeEg/preview", text: "Captured memories." },
+      { id: 15, iframe: "https://drive.google.com/file/d/1RZ5g8Y_o1URV0uZgC-CJgCWAKzRuaMZK/preview", text: "A special day indeed." },
+      { id: 16, iframe: "https://drive.google.com/file/d/1yZ11ywNV_HUb1dy_cGqJcP-w9r6spG95/preview", text: "Cherished moments forever." },
+      { id: 17, iframe: "https://drive.google.com/file/d/16St4gf8LyHDEX_SGk7dZdWmH9I17VeEg/preview", text: "A family full of love!" },
+      { id: 18, iframe: "https://drive.google.com/file/d/1ElQUCuBX7BXiSMTnv5Y0LAE4cxP0eQbk/preview", text: "Every photo tells a story." },
+      { id: 19, iframe: "https://drive.google.com/file/d/1JZW5f-FZnqSl5uRf8JO7HaWRBgTSVfJr/preview", text: "The best moments are together." },
+      { id: 20, iframe: "https://drive.google.com/file/d/1g1ultO8Yo6XuROdqWqtnwe4QuJFb5bqD/preview", text: "Happy moments captured!" },
+	  
+	  
+	    { id: 21, iframe: "https://drive.google.com/file/d/1eH86EY0Si0Xf81o3TSgLsZMmJkfdsCTv/preview", text: "Family celebration with joy!" },
+      { id: 22, iframe: "https://drive.google.com/file/d/1x7FCtlenkBW2XjI_5ROR-s3E2MKlCJM7/preview", text: "A moment to remember!" },
+      { id: 23, iframe: "https://drive.google.com/file/d/1grMl7NuRFq1zCdPfd8bhjXx8-R9VXEvL/preview", text: "Happiness in every frame!" },
+      { id: 24, iframe: "https://drive.google.com/file/d/1O8VHHOpCF5ooogQDwneUdqt6lpRyvTU0/preview", text: "Captured memories." },
+      { id: 25, iframe: "https://drive.google.com/file/d/1pVjo77ZZIFHgThKmoXb1PtGWyK9F7MeD/preview", text: "A special day indeed." },
+      { id: 26, iframe: "https://drive.google.com/file/d/1rLKKuvh3fiXLw_j3UooTuotHSjf_0IMD/preview", text: "Cherished moments forever." },
+      { id: 27, iframe: "https://drive.google.com/file/d/1uQ7Ro4TZ6FAy5A0tUlYsl2gsBoyqWcFN/preview", text: "A family full of love!" },
+      { id: 28, iframe: "https://drive.google.com/file/d/1HafFGCeyAFkTsUqV13JIQb_QS4QC-rtA/preview", text: "Every photo tells a story." },
+      { id: 29, iframe: "https://drive.google.com/file/d/1hcDaKuz7AGgKgV3nqbp4pH4QtPJZX7jR/preview", text: "The best moments are together." },
+      { id: 30, iframe: "https://drive.google.com/file/d/1HPuf9QE_TcebRTMBcKJGe5n6iNOAtm4p/preview", text: "Happy moments captured!" },
+	  
+	  
+		{ id: 31, iframe: "https://drive.google.com/file/d/1XH6fBZPg7JbASbusgbexiO1enO0n9HmR/preview", text: "Family celebration with joy!" },
+      { id: 32, iframe: "https://drive.google.com/file/d/1GCo0oWWhlWkxhahv_RTD-QALVSSP2iuW/preview", text: "A moment to remember!" },
+      { id: 33, iframe: "https://drive.google.com/file/d/1L7Iuu3B5HZi-dIfo-LBxQt3T1Kl6gucV/preview", text: "Happiness in every frame!" },
+      { id: 34, iframe: "https://drive.google.com/file/d/19IHPh8a88YsigCiVvy_mNP4loSpVqYiD/preview", text: "Captured memories." },
+      { id: 35, iframe: "https://drive.google.com/file/d/1INSRTwziqCNTDh3QKVdjbpAdp8_nYBOh/preview", text: "A special day indeed." },
+      { id: 36, iframe: "https://drive.google.com/file/d/1dInqBOAFRQEkj63sIfbT-3kA7z2Xp5br/preview", text: "Cherished moments forever." },
+      { id: 37, iframe: "https://drive.google.com/file/d/17hpE7mTj-EONgMJlJTFWuOdyvigKyz9d/preview", text: "A family full of love!" },
+      { id: 38, iframe: "https://drive.google.com/file/d/1vwE6rb5GCA-BKTUfvVaWDHpZg4wd5TqW/preview", text: "Every photo tells a story." },
+      { id: 39, iframe: "https://drive.google.com/file/d/1ompu4SzzvfwXmbDHs_lsHucZO_iaWo_H/preview", text: "The best moments are together." },
+      { id: 40, iframe: "https://drive.google.com/file/d/1GnTn4FZXPfJU5jeWR1NovfieA88Mmx3i/preview", text: "Happy moments captured!" },
+     
+	  
+	       { id: 41, iframe: "https://drive.google.com/file/d/1k28K5lQxQqRbUMuxQqa4zGbqhnQqXlL5/preview", text: "The best moments are together." },
+      { id: 42, iframe: "https://drive.google.com/file/d/1qwqwWj7vPe_-Ja5tYjUc6ppLMhL4rIbI/preview", text: "Happy moments captured!" },
+	  
+	       { id: 43, iframe: "https://drive.google.com/file/d/1Njwyl54sihdABswnCJbr6iY4eFiTd80b/preview", text: "The best moments are together." },
+      { id: 44, iframe: "https://drive.google.com/file/d/1H_-XnZpQAuk0plLn5q2Sjs4pO7I0WMTw/preview", text: "Happy moments captured!" },
+	  
+	       { id: 45, iframe: "https://drive.google.com/file/d/1UVCcLDfWx-9uhIYWlGQlCvEUWFagm0ZN/preview", text: "The best moments are together." },
+      { id: 46, iframe: "https://drive.google.com/file/d/1gsSYzwlCfj2k4wkBlRV5GXNCSXqOuLhy/preview", text: "Happy moments captured!" },
+	  
+	  
+	   
+	       { id: 47, iframe: "https://drive.google.com/file/d/1UkFVEYkpo-NKmQQF3wJQYW3NzyCT_bkU/preview", text: "The best moments are together." },
+      { id: 48, iframe: "https://drive.google.com/file/d/1DTEnZiAKjK0f31rmOtwJX3wB8TD3CKRr/preview", text: "Happy moments captured!" },
+	  
+	       { id: 49, iframe: "https://drive.google.com/file/d/1uvQgFgv7CPSV3RCcmvPlqO44p0ljHdr_/preview", text: "The best moments are together." },
+      { id: 50, iframe: "https://drive.google.com/file/d/1sa1uUzSzy4t-xfYBwzs4-KMrii5t4oVA/preview", text: "Happy moments captured!" },
+	  
+	       { id: 51, iframe: "https://drive.google.com/file/d/1BWWDBCFfsxr60VUm0XIyrd6_C8yE95m-/preview", text: "The best moments are together." },
+      { id: 52, iframe: "https://drive.google.com/file/d/1YSBYqYtzEYoR6y68sFxgTG2ZTWYWYXXQ/preview", text: "Happy moments captured!" },
+
+    { id: 53, iframe: "https://drive.google.com/file/d/1TIO9WeXQUCo3SWj6gnGibHvb6iPLDbJt/preview", text: "Happy moments captured!" },
+	  
+	       { id: 54, iframe: "https://drive.google.com/file/d/1EpF9pk29x9x14F3IiAT8nO8nZhFGHQOq/preview", text: "The best moments are together." },
+      { id: 55, iframe: "https://drive.google.com/file/d/1KbKz02B8yhYojRaiL8p67bYzUBdXIS5W/preview", text: "Happy moments captured!" },
+
+    { id: 56, iframe: "https://drive.google.com/file/d/18CMqPCg7o_b7mWY0vCYXUYZvFedr0_w4/preview", text: "Happy moments captured!" },
+	  
+	       { id: 57, iframe: "https://drive.google.com/file/d/13aIDgdJxrAq7cp6JLxyY3g12hQ0DjW4f/preview", text: "The best moments are together." },
+      { id: 58, iframe: "https://drive.google.com/file/d/1MjzqQhjDgDFzS8--jp0EhW5UHFwp5MZp/preview", text: "Happy moments captured!" },
+
+
+    { id: 59, iframe: "https://drive.google.com/file/d/18k4XLQysxm_p-qgZqcy5jP1IZzAPTWHl/preview", text: "Happy moments captured!" },
+	  
+    { id: 60, iframe: "https://drive.google.com/file/d/11cHyp6LiTCyvqCpZNRW5tznswbWxAfQr/preview", text: "The best moments are together." },
+
+      { id: 61, iframe: "https://drive.google.com/file/d/1OszC5e-TmarMvurGyfIPqZPA_OeD2g7G/preview", text: "Happy moments captured!" },
+
+     { id: 62, iframe: "https://drive.google.com/file/d/1h4xo3FJChoRBYFzo0EHVW63HxkiMSBOT/preview", text: "Happy moments captured!" },
+	  
+   { id: 63, iframe: "https://drive.google.com/file/d/1h3IgYDUJ1RU40zO85Y8_o1lEnryan2Th/preview", text: "The best moments are together." },
+
+      { id: 64, iframe: "https://drive.google.com/file/d/17Xl_5U_fj-m_syzZmTGF54_lHzUdU9cY/preview", text: "Happy moments captured!" },
+
+	 { id: 65, iframe: "https://drive.google.com/file/d/1tQBvFRfl97B9ghFi4XfBb0Wsx57Arq4j/preview", text: "The best moments are together." },
+
+      { id: 66, iframe: "https://drive.google.com/file/d/1yaTXzN86mFtqKPzQPDGSW2IUaMdaMzID/preview", text: "Happy moments captured!" },
+
+     { id: 67, iframe: "https://drive.google.com/file/d/1V0vgJySWAaBNt02WbgOB65aXkX4VQbi6/preview", text: "Happy moments captured!" },
+	  
+   { id: 68, iframe: "https://drive.google.com/file/d/1D_FY04K-OYXoqG_pg20SuJqaylUcMNti/preview", text: "The best moments are together." },
+
+      { id: 69, iframe: "https://drive.google.com/file/d/1YvW5kVsJcXZVBhuDwa2Q5efE5p1Q6kvQ/preview", text: "Happy moments captured!" },
+
+ { id: 70, iframe: "https://drive.google.com/file/d/1fSC6Mq5fZFmjb9IbdEwKBgrxDFPqWw7G/preview", text: "The best moments are together." },
+
+      { id: 71, iframe: "https://drive.google.com/file/d/1CizZ-WCAmBPa0YOZXxQqyj8woJROJa_j/preview", text: "Happy moments captured!" },
+
+     { id: 72, iframe: "https://drive.google.com/file/d/1ohPOa6ks34aVbTJWCmVFS9_asbsHGcMx/preview", text: "Happy moments captured!" },
+	  
+   { id: 73, iframe: "https://drive.google.com/file/d/1EUINND-vqDhJdx-8tJxExZ3of5nlJkQb/preview", text: "The best moments are together." },
+
+      { id: 74, iframe: "https://drive.google.com/file/d/1WM1XMZHIuEzPld5otnQkNwAmmCJp7xqX/preview", text: "Happy moments captured!" },
+
+ { id: 75, iframe: "https://drive.google.com/file/d/1s_TT_5Wg7seyn7o9rNmZyRMO6wCoFbSP/preview", text: "The best moments are together." },
+
+      { id: 76, iframe: "https://drive.google.com/file/d/1T8lkKG9jF6dHOS291fq55eJ98TQl3PRo/preview", text: "Happy moments captured!" },
+
+     { id: 77, iframe: "https://drive.google.com/file/d/1r3D-sld0-RcrB_3xgo5HOVEQeCn9opBB/preview", text: "Happy moments captured!" },
+	  
+   { id: 78, iframe: "https://drive.google.com/file/d/1By2O7myiP7jnW_GZxhlKeCrzrpH-wm3W/preview", text: "The best moments are together." },
+
+      { id: 79, iframe: "https://drive.google.com/file/d/145laugTHDZEZMPVXq1hPVTVNQ8OpdqbD/preview", text: "Happy moments captured!" },
+
+ { id: 80, iframe: "https://drive.google.com/file/d/1kQQTO9gBLVOHsKKSkI-9LZAF-HmvfNWD/preview", text: "The best moments are together." },
+
+      { id: 81, iframe: "https://drive.google.com/file/d/1Zh5w7uE4HQrIft3UFGmi_Tx8QPJNipq6/preview", text: "Happy moments captured!" },
+
+     { id: 82, iframe: "https://drive.google.com/file/d/1kVCVS9YzmF3uSNSnvlY3tPNnYjTTaiSI/preview", text: "Happy moments captured!" },
+	  
+   { id: 83, iframe: "https://drive.google.com/file/d/1DENA8IoMNpuXTSJGKMAgMXb2VJxqzDsI/preview", text: "The best moments are together." },
+
+      { id: 84, iframe: "https://drive.google.com/file/d/1heqnpuaMlVmktL2G34whznEgQNubpxYo/preview", text: "Happy moments captured!" },
+
+{ id: 85, iframe: "https://drive.google.com/file/d/1Zh9hmhxYpSC6VURFD-bOUcBFa-BHLIKa/preview", text: "The best moments are together." },
+
+      { id: 86, iframe: "https://drive.google.com/file/d/1l7msyyblGZkkyR2UMw-8XNe6f-FrPeqb/preview", text: "Happy moments captured!" },
+
+ { id: 87, iframe: "https://drive.google.com/file/d/1q92-3T_1ewg-PAOfEfR-bmdXqx34E15I/preview", text: "The best moments are together." },
+
+      { id: 88, iframe: "https://drive.google.com/file/d/13AwQ9v_t4PpPgDh2JactvveP6-6i6ddN/preview", text: "Happy moments captured!" },
+
+     { id:89, iframe: "https://drive.google.com/file/d/11ci3-7Ai-_TG1tRkogJUMEEcq6dcYElh/preview", text: "Happy moments captured!" },
+	  
+   { id: 90, iframe: "https://drive.google.com/file/d/17hpCr0jU24VR9vC403chH4HIlJLV6-dr/preview", text: "The best moments are together." },
+
+      { id: 91, iframe: "https://drive.google.com/file/d/1EP1yYt_Q_P_hqLTJ1GcMxKIaGOd8Gjg_/preview", text: "Happy moments captured!" },
+     { id: 92, iframe: "https://drive.google.com/file/d/1h1ukXhvAjn74EB7GTaoGSv5N2CNVRDY1/preview", text: "The best moments are together." },
+      { id: 93, iframe: "https://drive.google.com/file/d/1k28K5lQxQqRbUMuxQqa4zGbqhnQqXlL5/preview", text: "Happy moments captured!" }
+
+
+
     ];
 
     const grid = document.getElementById("galleryGrid");
